@@ -179,14 +179,19 @@ class FilesTab extends React.Component {
             return null;
         }
 
-        const files = vm.files ? vm.files.map(file => (
-            {
-                url: isRtl ? fileIconRtl : fileIcon,
-                name: file.name,
-                details: file.size,
-                dragPayload: file
-            }
-        )) : [];
+        const store = vm.runtime.storage.builtinHelper.assets;
+
+        const files = [];
+
+        for (let file in store) {
+            let storeFile = store[file];
+            files.push({
+                url: '',
+                name: `${storeFile.id}.${storeFile.format}`,
+                details: `${storeFile.data.length || 0} bytes`,
+                dragPayload: file,
+            });
+        }
 
         const messages = defineMessages({
             fileUploadExternal: {

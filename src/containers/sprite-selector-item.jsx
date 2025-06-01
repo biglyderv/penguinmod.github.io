@@ -147,6 +147,7 @@ class SpriteSelectorItem extends React.PureComponent {
                 onMouseDown={this.handleMouseDown}
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}
+                width={this.width}
                 {...props}
             />
         );

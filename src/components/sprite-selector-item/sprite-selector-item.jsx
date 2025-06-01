@@ -21,7 +21,8 @@ const SpriteSelectorItem = props => (
             onMouseEnter: props.onMouseEnter,
             onMouseLeave: props.onMouseLeave,
             onMouseDown: props.onMouseDown,
-            onTouchStart: props.onMouseDown
+            onTouchStart: props.onMouseDown,
+            style: {width: props.width}
         }}
         disable={props.preventContextMenu}
         id={`${props.name}-${contextMenuId}`}
@@ -41,7 +42,8 @@ const SpriteSelectorItem = props => (
                 </div>
             </div>
         ) : null}
-        <div className={styles.spriteInfo}>
+        <div className={styles.spriteInfo}
+        style={{width: props.width}}>
             <div className={styles.spriteName}>{props.name}</div>
             {props.details ? (
                 <div className={styles.spriteDetails}>{props.details}</div>

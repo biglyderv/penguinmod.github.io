@@ -303,7 +303,7 @@ const GUIComponent = props => {
         costume: costumesTab,
         sound: soundsTab,
         variable: variablesTab,
-        // file: filesTab,
+        file: filesTab,
     };
 
     // For now, rearranging tabs is not supported
@@ -581,7 +581,7 @@ const GUIComponent = props => {
                                                 />
                                             </div>
                                         </MenuItem>}
-                                        {/* {!tabOrder.includes('file') && <MenuItem onClick={() => addTabToEditor('file')}>
+                                        {!tabOrder.includes('file') && <MenuItem onClick={() => addTabToEditor('file')}>
                                             <div className={styles.tabAdditionItem}>
                                                 <img
                                                     draggable={false}
@@ -593,7 +593,7 @@ const GUIComponent = props => {
                                                     id="gui.gui.filesTab"
                                                 />
                                             </div>
-                                        </MenuItem>} */}
+                                        </MenuItem>}
                                     </ContextMenu>
 
                                     <div id="sa_addons_after_add_tab_anchor" />
@@ -639,6 +639,12 @@ const GUIComponent = props => {
                                 </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     {variablesTabVisible ? <VariablesTab vm={vm} /> : null}
+                                </TabPanel>
+                                <TabPanel className={tabClassNames.tabPanel}>
+                                    {filesTabVisible ? <FilesTab
+                                        vm={vm}
+                                        isDark={isDark}
+                                    /> : null}
                                 </TabPanel>
                             </Tabs>
                             {backpackVisible ? (

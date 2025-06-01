@@ -34,7 +34,7 @@ const Selector = props => {
     let newButtonSection = null;
 
     if (buttons.length > 0) {
-        const {img, title, onClick} = buttons[0];
+        const { img, title, onClick } = buttons[0];
         const moreButtons = buttons.slice(1);
         newButtonSection = (
             <Box className={styles.newButtons}>
@@ -53,8 +53,10 @@ const Selector = props => {
         <Box
             className={styles.wrapper}
             componentRef={containerRef}
+            width="220px"
         >
-            <Box className={styles.listArea}>
+            <Box className={styles.listArea}
+                width="220px">
                 {items.map((item, index) => (
                     <SortableAsset
                         id={item.name}
@@ -64,6 +66,7 @@ const Selector = props => {
                         onRemoveSortable={onRemoveSortable}
                     >
                         <SpriteSelectorItem
+                            width="200px"
                             asset={item.asset}
                             className={classNames(styles.listItem, {
                                 [styles.placeholder]: isRelevantDrag && index === draggingIndex
